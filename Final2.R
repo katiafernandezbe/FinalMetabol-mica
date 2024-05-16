@@ -54,6 +54,12 @@ DCT
 promedio_genes <- DCT %>% 
   mutate(Mean_DCT_Cx=(DCT_C1+DCT_C2+DCT_C3)/3) %>% 
   mutate(Mean_DCT_Tx=(DCT_T1+DCT_T2+DCT_T3)/3)
-
 promedio_genes
+
+DDCT <- DCT %>% 
+  mutate(DDCT=(Mean_DCT_Tx-Mean_DCT_Cx)) %>% 
+  mutate("2^-DDCT"=(2^(-DDCT))) %>% 
+  select(1, 11)
+
+DDCT
 
